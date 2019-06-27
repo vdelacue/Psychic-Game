@@ -1,13 +1,18 @@
 // Create a small array
-var letters = ["a", "b", "c"];
+var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
 // Create an empty array to hold what the user guesses
+var userGuesses = [];
 
 // Create a variable that will be randomly assigned one of the three letters
 
+var randomLetter = letters[Math.floor(Math.random() * letters.length)];
+
 // Set a limit for the user guesses left and assign that to a variable. 
+var remainingGuesses = 9;
 
 // Create counters for wins and losses and assign them the value of zero
+var numOfGuesses = 0;
 
 // Create three functions to update guesses, update guesses left, and update guesses so far
 
@@ -55,9 +60,7 @@ var letters = ["a", "b", "c"];
     var computerChoices = ['r', 'p', 's'];
 
     // Creating variables to hold the number of wins, losses, and ties. They start at 0.
-    var wins = 0;
-    var losses = 0;
-    var ties = 0;
+    
 
     // Create variables that hold references to the places in the HTML where we want to display things.
     var directionsText = document.getElementById('directions-text');
