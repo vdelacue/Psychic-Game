@@ -1,0 +1,32 @@
+body {
+    
+    color: azure;
+    font-size: 20px;
+    background-image: url(../images/crystalBall.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    text-align: center;
+   
+}
+header {
+    margin: 30px;
+}
+h1, p {
+    color: coral;
+    /* background: azure; */
+    margin: 15%;
+}
+.intro {
+    font-size: 20px;
+}
+.colorful {
+    color: orange;
+}
+
+#statusBar {
+    
+    background: white;
+    margin-top: 127px;
+    
+}

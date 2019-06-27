@@ -56,15 +56,19 @@ document.onkeyup = function (event) {
             remainingGuessHTML.textContent = "remaining guesses: " + remainingGuesses;
             if (userGuess === randomLetter) {
                 wins++;
+                alert("You Won!!!!")
                 winMessage.textContent = "You Won!!";
                 winsText.textContent = 'wins: ' + wins;
+               
                 resetGame();
             }
 
             if (remainingGuesses === 0) {
                 losses++;
+                alert("You Lost!!!!")
                 lossMessage.textContent = "You Lost!"
                 lossesText.textContent = 'losses: ' + losses;
+                
                 resetGame();
             }
         }
