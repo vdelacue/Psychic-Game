@@ -44,42 +44,51 @@ document.onkeyup = function (event) {
     // Determines which key was pressed.
 
     if (event.which >= 65 && event.which <= 90) {
-    var userGuess = event.key;
-    remainingGuesses--;
-    remainingGuessHTML.textContent = "remaining guesses: " + remainingGuesses;
-    userGuesses.push(userGuess);
-    userGuessHTML.textContent = 'You chose: ' + userGuesses;
-    
-    if (userGuess === randomLetter) {
-        wins++;
-        winMessage.textContent = "You Won!!";
-        winsText.textContent = 'wins: ' + wins;
-        resetGame();
+        var userGuess = event.key;
+       
+        
+        
+        if (userGuesses.includes(userGuess)) {
+            alert("you guessed " + userGuess + " already")
+            return false
+        } else {
+            userGuesses.push(userGuess);
+            userGuessHTML.textContent = 'You chose: ' + userGuesses;
+            remainingGuesses--;
+            remainingGuessHTML.textContent = "remaining guesses: " + remainingGuesses;
+            if (userGuess === randomLetter) {
+                wins++;
+                winMessage.textContent = "You Won!!";
+                winsText.textContent = 'wins: ' + wins;
+                resetGame();
+            }
+
+            if (remainingGuesses === 0) {
+                losses++;
+                lossMessage.textContent = "You Lost!"
+                lossesText.textContent = 'losses: ' + losses;
+                resetGame();
+            }
+        }
+
+
+        // if (userGuess !== randomLetter && userGuesses.indexOf(userGuess) != -1 && remainingGuesses > 0) {
+        //     userGuesses.push(userGuess)
+
+        // } else if (userGuess.toLocaleLowerCase() === randomLetter) {
+        //     winMessage.textContent = "You Won!!";
+        // } else {
+        //     lossMessage.textContent = "You Lost!";
+        // };
+
+
+        // Hide the directions
+        directionsText.textContent = '';
+
+        // Display the user and computer guesses, and wins/losses/ties.
+        // computerChoiceText.textContent = 'The computer chose: ' + computerGuess;
+        // winsText.textContent = 'wins: ' + wins;
+        // lossesText.textContent = 'losses: ' + losses;
+        // tiesText.textContent = 'ties: ' + ties;
     }
-
-    if (remainingGuesses === 0) {
-        losses++;
-        lossMessage.textContent = "You Lost!"
-        lossesText.textContent = 'losses: ' + losses;
-        resetGame();
-    }
-    // if (userGuess !== randomLetter && userGuesses.indexOf(userGuess) != -1 && remainingGuesses > 0) {
-    //     userGuesses.push(userGuess)
-
-    // } else if (userGuess.toLocaleLowerCase() === randomLetter) {
-    //     winMessage.textContent = "You Won!!";
-    // } else {
-    //     lossMessage.textContent = "You Lost!";
-    // };
-
-
-    // Hide the directions
-    directionsText.textContent = '';
-
-    // Display the user and computer guesses, and wins/losses/ties.
-    // computerChoiceText.textContent = 'The computer chose: ' + computerGuess;
-    // winsText.textContent = 'wins: ' + wins;
-    // lossesText.textContent = 'losses: ' + losses;
-    // tiesText.textContent = 'ties: ' + ties;
-}
 };
